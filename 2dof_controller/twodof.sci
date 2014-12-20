@@ -8,7 +8,7 @@ function [stop] = twodof(setpoint,fan)
     u_new = (1/Rc(1))*(gamm*Tc(1)*r_new + gamm*Tc(2)*r_old-Sc(1)*y_new -Sc(2)*y_old-Rc(2)*u_old - Rc(3)*u_old_old);//first order control law
     heat = u_new;
     [stop,temp] = comm(heat,fan);//Never edit this line
-    plotting([heat fan temp setpoint], [], []);
+    plotting([heat fan temp],[0 0 25 0],[100 100 50 1000]);
     
     u_old_old = u_old;
     u_old = u_new;
